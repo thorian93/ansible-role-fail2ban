@@ -1,0 +1,54 @@
+---
+- name: "Preflight - Fail if target host is not stable for this Role."
+  fail:
+    msg: "This role is not stable for the target operating system, {{ ansible_distribution }} {{ ansible_distribution_major_version }}."
+  when: (ansible_distribution is not defined) or
+        (ansible_distribution_version is not defined) or
+        (ansible_distribution+" "+ansible_distribution_major_version not in fail2ban_stable_os)
+
+- name: Populate service facts for several checks.
+  service_facts:
+
+- name: "Install Fail2Ban."
+  package:
+    name: fail2ban
+    state: present
+  notify: restart fail2ban
+
+- name: "Configure Fail2Ban Service."
+  template:
+    src: fail2ban.local.j2
+    dest: /etc/fail2ban/fail2ban.local
+    mode: 0644
+  notify: restart fail2ban
+
+- name: "Configure Fail2Ban Jails."
+  template:
+    src: jail.local.j2
+    dest: /etc/fail2ban/jail.local
+    mode: 0644
+  notify: restart fail2ban
+
+- name: "Copy Fail2Ban Filters."
+  copy:
+    src: filters/
+    dest: /etc/fail2ban/filter.d/
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart fail2ban
+
+- name: "Copy Fail2Ban Monitoring Plugin for Checkmk."
+  copy:
+    src: cmk_fail2ban.sh.j2
+    dest: /usr/lib/check_mk_agent/plugins/fail2ban
+    owner: root
+    group: root
+    mode: 0750
+  when: fail2ban_monitoring_cmk | bool
+
+- name: "Enable Fail2Ban to start on Boot."
+  service:
+    name: fail2ban
+    state: started
+    enabled: 'yes'

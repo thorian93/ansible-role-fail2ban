@@ -1,0 +1,84 @@
+# {{ ansible_managed }}
+
+[INCLUDES]
+
+{% if 'Debian' in ansible_os_family %}
+before = paths-debian.conf
+{% endif %}
+{% if 'RedHat' in ansible_os_family %}
+before = paths-fedora.conf
+{% endif %}
+
+[DEFAULT]
+
+# MISCELLANEOUS OPTIONS
+
+ignoreip = {{ fail2ban_ignoreip }}
+bantime  = {{ fail2ban_bantime }}
+findtime = {{ fail2ban_findtime }}
+maxretry = {{ fail2ban_maxretry }}
+
+backend = auto
+usedns = warn
+
+logencoding = auto
+enabled = false
+filter = %(__name__)s
+
+destemail = "{{ fail2ban_alert_mail }}"
+sender = "fail2ban@{{ ansible_nodename }}"
+sendername = "Fail2Ban @ {{ ansible_nodename }}"
+mta = sendmail
+
+# JAILS
+
+# Provided by the Ansible role:
+[sshd]
+enabled = true
+{% if ansible_selinux.status == "enabled" %}
+[selinux-ssh]
+enabled = true
+{% endif %}
+{% if 'postfix.service' in services %}
+[postfix]
+enabled = true
+{% endif %}
+{% if 'xinetd.service' in services %}
+[xinetd]
+enabled = true
+{% endif %}
+{% if 'mysql.service' in services or 'mysqld.service' in services or 'mariadb.service' in services %}
+[mysqld-auth]
+enabled = true
+{% endif %}
+{% if webserver_name == "apache" %}
+[apache-auth]
+enabled = true
+port = http,https
+[apache-badbots]
+enabled = true
+[apache-nohome]
+enabled = true
+[apache-noscript]
+enabled = true
+[apache-shellshock]
+enabled = true
+{% endif %}
+{% if webserver_name == "nginx" %}
+[nginx]
+enabled = true
+port = http,https
+{% endif %}
+
+# Custom Services: {% if not fail2ban_services_custom | length %}None given.{% endif %}
+{% if fail2ban_services_custom | length %}
+{% for service in fail2ban_services_custom %}
+[{{ service.name }}]
+enabled = {{ service.enabled | default(true) | bool | to_json }}
+{% for option, value in service.items() | sort %}
+{% if option not in ['name', 'enabled'] %}
+{{ option }} = {{ value }}
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endif %}

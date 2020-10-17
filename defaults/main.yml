@@ -1,0 +1,45 @@
+---
+fail2ban_stable_os:
+  - Debian 9
+  - Debian 10
+  - CentOS 7
+  - CentOS 8
+  - Fedora 31
+  - Fedora 32
+  # - openSUSE Leap 15
+  # - openSUSE Leap 42
+  - Ubuntu 16
+  - Ubuntu 18
+  - Ubuntu 20
+
+fail2ban_ignoreip: 127.0.0.1/8
+fail2ban_bantime: 432000  # 5 days
+fail2ban_findtime: 86400  # 1 day
+fail2ban_maxretry: 3
+fail2ban_alert_mail: root@localhost
+
+fail2ban_loglevel: INFO
+fail2ban_logtarget: /var/log/fail2ban.log
+fail2ban_syslog_target: /var/log/fail2ban.log
+fail2ban_syslog_facility: 1
+
+fail2ban_monitoring_cmk: 'false'
+
+fail2ban_services_custom: []
+# The following are two examples for custom jails.
+# They are not enabled by default as they monitor systems that need certain prerequisites.
+# Feel free to test them and give me Feedback on them!
+#
+# Nextcloud:
+# - name: 'nextcloud'
+#   port: http,https
+#   filter: nextcloud
+#   logpath: "{{ nextcloud_data_dir }}/nextcloud.log"
+#
+# Matomo:
+# This needs the Matomo Plugin 'LoginFailLog' (https://github.com/patrickbr/matomo-LoginFailLog/blob/master/README.md)
+# Also you need to enable logging to file following this guide: https://matomo.org/faq/troubleshooting/faq_115/
+# - name: 'matomo'
+#   port: http,https
+#   filter: matomo
+#   logpath: "{{ matomo_web_dir }}/matomo.log"
