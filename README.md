@@ -2,9 +2,9 @@
 
 This role manages fail2ban on Debian/Ubuntu, RHEL/CentOS and Fedora servers.
 
-[![Ansible Role: Fail2Ban](https://img.shields.io/ansible/role/CHANGEME?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_fail2ban)
-[![Ansible Role: Fail2Ban](https://img.shields.io/ansible/quality/CHANGEME?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_fail2ban)
-[![Ansible Role: Fail2Ban](https://img.shields.io/ansible/role/d/CHANGEME?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_fail2ban)
+[![Ansible Role: Fail2Ban](https://img.shields.io/ansible/role/51322?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_fail2ban)
+[![Ansible Role: Fail2Ban](https://img.shields.io/ansible/quality/51322?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_fail2ban)
+[![Ansible Role: Fail2Ban](https://img.shields.io/ansible/role/d/51322?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_fail2ban)
 
 ## Here be Dragons!
 
