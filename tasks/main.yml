@@ -27,7 +27,7 @@
     src: jail.local.j2
     dest: /etc/fail2ban/jail.local
     mode: 0644
-  notify: restart fail2ban
+  notify: reload fail2ban
 
 - name: "Copy Fail2Ban Filters."
   copy:
@@ -36,7 +36,7 @@
     owner: root
     group: root
     mode: 0644
-  notify: restart fail2ban
+  notify: reload fail2ban
 
 - name: "Copy Fail2Ban Monitoring Plugin for Checkmk."
   copy:
