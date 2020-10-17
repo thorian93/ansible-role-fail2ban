@@ -71,6 +71,7 @@ port = http,https
 {% endif %}
 
 # Custom Services: {% if not fail2ban_services_custom | length %}None given.{% endif %}
+
 {% if fail2ban_services_custom | length %}
 {% for service in fail2ban_services_custom %}
 [{{ service.name }}]
