@@ -32,4 +32,4 @@ galaxy_info:
         - Focal
 
 dependencies:
- - { role: thorian93.ansible_role_webserver }
+  - { role: thorian93.ansible_role_webserver }
