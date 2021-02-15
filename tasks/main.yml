@@ -9,6 +9,23 @@
 - name: Populate service facts for several checks.
   service_facts:
 
+- name: "Include Derivate specific Variables."
+  include_vars: "{{ ansible_os_family }}.yml"
+  changed_when: 'false'
+  failed_when: 'false'
+
+- name: "Include Distribution specific Variables."
+  include_vars: "{{ ansible_distribution }}.yml"
+  changed_when: 'false'
+  failed_when: 'false'
+
+- name: "Install Prerequisites."
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ fail2ban_prerequisites }}"
+  when: fail2ban_prerequisites is defined
+
 - name: "Install Fail2Ban."
   package:
     name: fail2ban

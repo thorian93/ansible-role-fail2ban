@@ -6,6 +6,7 @@ fail2ban_stable_os:
   - CentOS 8
   - Fedora 31
   - Fedora 32
+  - Fedora 33
   # - openSUSE Leap 15
   # - openSUSE Leap 42
   - Ubuntu 16
