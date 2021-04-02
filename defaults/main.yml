@@ -51,14 +51,14 @@ fail2ban_services_custom: []
 # - name: 'laravel-norm'
 #   port: http,https
 #   filter: laravel-norm
-#   bantime  = {{ fail2ban_bantime }}
-#   findtime = {{ fail2ban_findtime }}
-#   maxretry = {{ fail2ban_maxretry }}
+#   bantime: "{{ fail2ban_bantime }}"
+#   findtime: "{{ fail2ban_findtime }}"
+#   maxretry: "{{ fail2ban_maxretry }}"
 #   logpath: "laravel.log"
 # - name: 'laravel-crit'
 #   port: http,https
 #   filter: laravel-crit
-#   bantime  = {{ fail2ban_bantime }}
-#   findtime = {{ fail2ban_findtime }}
-#   maxretry = {{ fail2ban_maxretry }}
+#   bantime: "{{ fail2ban_bantime }}"
+#   findtime: "{{ fail2ban_findtime }}"
+#   maxretry: "{{ fail2ban_maxretry }}"
 #   logpath: "laravel.log"
