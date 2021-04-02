@@ -44,3 +44,21 @@ fail2ban_services_custom: []
 #   port: http,https
 #   filter: matomo
 #   logpath: "{{ matomo_web_dir }}/matomo.log"
+#
+# Laravel:
+# These are custom made jails. If you want to use them, you have to adapt your Laravel application accordingly
+# or update the configurations in this file.
+# - name: 'laravel-norm'
+#   port: http,https
+#   filter: laravel-norm
+#   bantime  = {{ fail2ban_bantime }}
+#   findtime = {{ fail2ban_findtime }}
+#   maxretry = {{ fail2ban_maxretry }}
+#   logpath: "laravel.log"
+# - name: 'laravel-crit'
+#   port: http,https
+#   filter: laravel-crit
+#   bantime  = {{ fail2ban_bantime }}
+#   findtime = {{ fail2ban_findtime }}
+#   maxretry = {{ fail2ban_maxretry }}
+#   logpath: "laravel.log"
