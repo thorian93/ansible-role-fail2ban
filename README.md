@@ -2,9 +2,9 @@
 
 This role manages fail2ban on Debian/Ubuntu, RHEL/CentOS and Fedora servers.
 
-[![Ansible Role: Fail2Ban](https://img.shields.io/ansible/role/51322?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_fail2ban)
-[![Ansible Role: Fail2Ban](https://img.shields.io/ansible/quality/51322?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_fail2ban)
-[![Ansible Role: Fail2Ban](https://img.shields.io/ansible/role/d/51322?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_fail2ban)
+[![Ansible Role: Fail2Ban](https://img.shields.io/ansible/role/55133?style=flat-square)](https://galaxy.ansible.com/thorian93/fail2ban)
+[![Ansible Role: Fail2Ban](https://img.shields.io/ansible/quality/55133?style=flat-square)](https://galaxy.ansible.com/thorian93/fail2ban)
+[![Ansible Role: Fail2Ban](https://img.shields.io/ansible/role/d/55133?style=flat-square)](https://galaxy.ansible.com/thorian93/fail2ban)
 
 ## Here be Dragons!
 
@@ -63,7 +63,7 @@ Configure custom jails you want to use. See `defaults/main.yml` for more details
 
 ## Dependencies
 
-[![Ansible Role: Webserver](https://img.shields.io/ansible/role/51301?style=flat-square)](https://galaxy.ansible.com/thorian93/ansible_role_webserver)</br>
+[![Ansible Role: Webserver](https://img.shields.io/ansible/role/51301?style=flat-square)](https://galaxy.ansible.com/thorian93/webserver)</br>
 *For webserver detection.*
 
 ## OS Compatibility
