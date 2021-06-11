@@ -1,6 +1,6 @@
 # Ansible Role: Fail2Ban
 
-This role manages fail2ban on Debian/Ubuntu, RHEL/CentOS and Fedora servers.
+This role manages Fail2Ban on Debian/Ubuntu, RHEL/CentOS and Fedora servers.
 
 [![Ansible Role: Fail2Ban](https://img.shields.io/ansible/role/55133?style=flat-square)](https://galaxy.ansible.com/thorian93/fail2ban)
 [![Ansible Role: Fail2Ban](https://img.shields.io/ansible/quality/55133?style=flat-square)](https://galaxy.ansible.com/thorian93/fail2ban)
@@ -21,7 +21,7 @@ No special requirements; note that this role requires root access, so either run
 
     - hosts: foobar
       roles:
-        - role: ansible-role-fail2ban
+        - role: thorian93.fail2ban
           become: yes
 
 ## Role Variables
