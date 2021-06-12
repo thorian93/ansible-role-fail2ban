@@ -52,7 +52,7 @@ enabled = true
 [mysqld-auth]
 enabled = true
 {% endif %} #}
-{% if webserver_name == "apache" %}
+{% if webserver_name == "apache" or webserver_name == "apache2" %}
 [apache-auth]
 enabled = true
 port = http,https
