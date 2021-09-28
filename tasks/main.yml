@@ -57,7 +57,7 @@
 
 - name: "Copy Fail2Ban Monitoring Plugin for Checkmk."
   copy:
-    src: cmk_fail2ban.sh.j2
+    src: cmk_fail2ban.sh
     dest: /usr/lib/check_mk_agent/plugins/fail2ban
     owner: root
     group: root
